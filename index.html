@@ -1,0 +1,19 @@
+<script>
+fetch("http://127.0.0.1:5000/predict", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        study_hours: study,
+        sleep_hours: sleep,
+        stress_level: stress,
+        assignment_load: assignment,
+        attendance: attendance
+    })
+})
+.then(response => response.json())
+.then(data => {
+    document.getElementById("result").innerText = data.prediction;
+});
+</script>
